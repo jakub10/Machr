@@ -1,3 +1,20 @@
-<h1>
-  {{title}}
-</h1>
+<div class="text-center">
+	<p>Darování je zcela dobrovolné. Pokud nechcete darovat nic nastavte částku na 0000 pomocí kliknutí na jednotlivé číslice. Měnu lze změnit také pomocí kliknutí na ni.</p><hr>
+	<div class="btn-group">
+		<button class="btn btn-primary btn-lg" (click)="decrement(&quot;thousands&quot;)">{{ thousands }}</button>
+		<button class="btn btn-primary btn-lg" (click)="decrement(&quot;hundreds&quot;)">{{ hundreds }}</button>
+		<button class="btn btn-primary btn-lg" (click)="decrement(&quot;tens&quot;)">{{ tens }}</button>
+		<button class="btn btn-primary btn-lg" (click)="decrement(&quot;units&quot;)">{{ units }}</button>
+		<button class="btn btn-primary btn-lg" (click)="decrement(&quot;currency&quot;)">{{ currency }}</button>
+	</div>
+	<hr>
+	<button class="btn btn-primary btn-lg" (click)="donate()">Donate!</button><hr>
+	<div *ngIf="donated">
+		<div *ngIf="donatedAmount!=0">
+			Děkujeme. Darovali jste {{ donatedAmount }}{{ donatedCurrency}}.
+		</div>
+		<div *ngIf="donatedAmount==0">
+			Děkujeme. Darovali jste nám svůj drahocenný čas a úsilí.
+		</div>
+	</div>
+</div>
